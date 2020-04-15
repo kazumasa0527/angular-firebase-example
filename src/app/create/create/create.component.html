@@ -2,16 +2,19 @@
 
 <p>カルーセルはいる</p>
 
-<form [formGroup]="form">
+<form [formGroup]= "form" (ngSubmit)="submit()">
   <mat-form-field>
     <mat-label>名前</mat-label>
     <input
-      placeholder="テスト太郎"
-      　type="text"
+      placeholder= "テスト太郎"
+      type="text"
       matInput
       autocomplete="off"
       required
+      formControlName="name"
     />
+    <mat-error *ngIf= "nameControl.hasError('required')">必須入力です</mat-error>
+    <mat-error *ngIf= "nameControl.hasError('maxlength')">長すぎ！！</mat-error>
   </mat-form-field>
 
   <mat-radio-group formControlName="gender">
@@ -19,5 +22,5 @@
     <mat-radio-button value="female">♀</mat-radio-button>
   </mat-radio-group>
 
-  <button mat-raised-button color="primary">つくる</button>
+  <button [disabled]= "form.invalid" mat-raised-button color="primary">つくる</button>
 </form>
