@@ -15,7 +15,7 @@ export class AuthService {
     private router: Router,
     private snackBar: MatSnackBar
   ) {
-    this.afUser$.subscribe((user) => console.log(user));
+    this.afUser$.subscribe(user => console.log(user));
   }
 
   login() {
@@ -23,6 +23,7 @@ export class AuthService {
       this.snackBar.open('ようこそGitPetへ', null, {
         duration: 2000,
       });
+      this.router.navigateByUrl('/create');
     });
   }
 
