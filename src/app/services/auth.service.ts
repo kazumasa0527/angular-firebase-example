@@ -32,7 +32,7 @@ export class AuthService {
       this.snackBar.open('ログアウトしました', null, {
         duration: 2000,
       });
+      this.router.navigateByUrl('/welcome');
     });
-    this.router.navigateByUrl('/welcome');
   }
 }
