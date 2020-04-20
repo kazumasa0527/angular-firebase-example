@@ -1,12 +1,11 @@
 <div class="pet">
-  <figure class="pet__avatar">
-    <img [src]="pet.avatarURL" alt="" />
-  </figure>
+  <figure class="pet__avatar"></figure>
   <div class="pet__body">
     <p class="pet__name">
       {{ pet.name }} <small>Lv {{ pet.level }}</small>
     </p>
-    <mat-progress-bar calss="pet__exp-bar"
+    <mat-progress-bar
+      calss="pet__exp-bar"
       mode="determinate"
       [value]="getExpPercentage()"
     ></mat-progress-bar>

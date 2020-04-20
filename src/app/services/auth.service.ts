@@ -5,17 +5,24 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   afUser$: Observable<User> = this.afAuth.user;
+  uid: string;
+
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
     private snackBar: MatSnackBar
   ) {
-    this.afUser$.subscribe(user => console.log(user));
+    this.afUser$.subscribe(user => {
+      // ユーザーがもしいた場合、uer.uidを入れるよ
+      // いなかったら空ですよ。
+      this.uid = user && user.uid;
+    });
   }
 
   login() {
