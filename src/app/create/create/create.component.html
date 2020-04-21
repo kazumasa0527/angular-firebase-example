@@ -3,7 +3,7 @@
 <div class="swiper">
   <swiper [config]="config" [(index)]="selectedPetId">
     <div *ngFor="let petId of petIds">
-      <!-- <img src="/assets/images/pet-{{ petId }}.png" alt="" /> -->
+      <img src="/assets/images/pet-{{ petId }}.png" alt="" />
     </div>
   </swiper>
   <div class="pager"></div>
