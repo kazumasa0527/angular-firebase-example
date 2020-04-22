@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AuthService {
   afUser$: Observable<User> = this.afAuth.user;
   uid: string;
+  gitHubId: number;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -21,6 +22,7 @@ export class AuthService {
     this.afUser$.subscribe(user => {
       // ユーザーがもしいた場合、uer.uidを入れるよ
       // いなかったら空ですよ。
+      this.gitHubId = +user.providerData[0].uid;
       this.uid = user && user.uid;
     });
   }
